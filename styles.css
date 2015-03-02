@@ -1,0 +1,63 @@
+html {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    font-family: "Lato",sans-serif;
+}
+
+body {
+    border: 0px none;
+    margin: 0px;
+    padding: 0px;
+	height: 100%;
+}
+.topbar {
+    position: relative;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 64px;
+    background-color: #EDEDED;
+    border-bottom: 1px solid #B2B2B2;
+}
+.application {
+    display: flex;
+    flex-direction: row;
+	height:100%;
+}
+.sidebar {
+    width: 20%;
+	min-height: 100%;
+	height: auto;
+	height: 100%;
+    position: relative;
+    background-color: #190C21;
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo {
+    flex: 0 1 auto;
+    width: 48px;
+    height: 48px;
+    margin: 8px;
+}
+.view {
+    flex: 1 1 auto;
+    width: 100%;
+    height: 100%;
+}
+.application .view.view-workspace {
+    background-color: #FFF;
+}
+.board-list {
+    margin: 32px;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;
+}
