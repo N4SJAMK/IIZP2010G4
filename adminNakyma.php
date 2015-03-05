@@ -20,18 +20,21 @@
 				Admin panel
 				</div>
             </div>
-			<div class="btn-group-vertical">
-				<button type="button" class="btn btn-primary" class="sideButton">Statistics</button>
-				<button type="button" class="btn btn-primary" class="sideButton">Users</button>
-				<button type="button" class="btn btn-primary" class="sideButton">Something</button>
+			<div class="btn-group-vertical" style = "width:100%">
+				<button type="button" onclick="jtn()" class="btn btn-primary">Statistics</button>
+				<button type="button" onclick="jtn()" class="btn btn-primary">Users</button>
+				<button type="button" onclick="jtn()" class="btn btn-primary">Database management</button>
+				
 			</div>
         </div>
         <div class="view view-workspace">
 		<div class ="topbar">
-		TopBar
+			<div class ="workspace-heading ">
+			Perus näkymä
+			</div>
 		</div>
-        <div class="board-list">
-				boardList
+        <div class="Data">
+				Data
         </div>
         </div>
     </div>
