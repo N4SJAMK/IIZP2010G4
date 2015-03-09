@@ -20,15 +20,15 @@
 				</div>
             </div>
 			<div class="btn-group-vertical" style = "width:100%">
-				<button type="button" onclick="jtn()" class="btn btn-primary">Statistics</button>
-				<button type="button" onclick="jtn()" class="btn btn-primary">Users</button>
-				<button type="button" onclick="DatabaseManagement()" class="btn btn-primary">Database management</button>
+				<button type="button" onclick="statisticManagement()" class="btn btn-primary">Statistics</button>
+				<button type="button" onclick="userManagement()" class="btn btn-primary">Users</button>
+				<button type="button" onclick="databaseManagement()" class="btn btn-primary">Database management</button>
 				
 			</div>
         </div>
         <div class="view view-workspace">
 		<div class ="topbar">
-			<div class ="workspace-heading ">
+			<div class ="workspace-heading" id="heading">
 			Perus näkymä
 			</div>
 		</div>
