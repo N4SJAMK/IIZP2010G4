@@ -26,7 +26,7 @@
 			</div>
         </div>
 		<div class ="topbar">
-			<div class ="workspace-heading" id="heading">
+			<div class ="workspace-heading" id="heading" data-toggle="collapse" data-parent="#accordion" href="#sidebar">
 				Baseview
 			</div>
 			<div class="Data" id="data">

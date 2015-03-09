@@ -25,6 +25,7 @@ body {
 .workspace-heading {
     padding: 15px 0 0 32px;
 	font-size: 150%;
+	cursor: pointer;
 }
 .application {
     display: flex;
