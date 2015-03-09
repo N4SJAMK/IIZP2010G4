@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lobster"></link>
     <link rel="stylesheet" href="styles.css"></link>
     <title>Admin paneeli</title>
-
 </head>
 <body>
     <div class="application">
@@ -23,7 +22,7 @@
 			<div class="btn-group-vertical" style = "width:100%">
 				<button type="button" onclick="jtn()" class="btn btn-primary">Statistics</button>
 				<button type="button" onclick="jtn()" class="btn btn-primary">Users</button>
-				<button type="button" onclick="jtn()" class="btn btn-primary">Database management</button>
+				<button type="button" onclick="DatabaseManagement()" class="btn btn-primary">Database management</button>
 				
 			</div>
         </div>
@@ -33,10 +32,11 @@
 			Perus näkymä
 			</div>
 		</div>
-        <div class="Data">
-				Data
+        <div class="Data" id="data">
+				
         </div>
         </div>
     </div>
+	<script src="scripts.js"></script>
 </body>
 </html>
