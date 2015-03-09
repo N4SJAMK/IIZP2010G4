@@ -13,8 +13,8 @@
 </head>
 <body>
     <div class="application">
-        <div class="sidebar">
-            <div class="logo-container">
+        <div class="sidebar" id="sidebar">
+            <div class="logo-container" onclick="base()">
                 <div class="logo">
 				Admin panel
 				</div>
@@ -22,19 +22,16 @@
 			<div class="btn-group-vertical" style = "width:100%">
 				<button type="button" onclick="statisticManagement()" class="btn btn-primary">Statistics</button>
 				<button type="button" onclick="userManagement()" class="btn btn-primary">Users</button>
-				<button type="button" onclick="databaseManagement()" class="btn btn-primary">Database management</button>
-				
+				<button type="button" onclick="databaseManagement()" class="btn btn-primary">Database management</button>				
 			</div>
         </div>
-        <div class="view view-workspace">
 		<div class ="topbar">
 			<div class ="workspace-heading" id="heading">
-			Perus näkymä
+				Baseview
 			</div>
-		</div>
-        <div class="Data" id="data">
-				
-        </div>
+			<div class="Data" id="data">
+				Select what data you want to see, or wait till someone updates this to show something	
+			</div>
         </div>
     </div>
 	<script src="scripts.js"></script>

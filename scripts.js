@@ -1,17 +1,22 @@
 //path has to be changed to 
+// load funktio ei toimi ellei käytä linkkiä kohteeseen
 var path= "http://student.labranet.jamk.fi/~H3408/IIZP2010G4/content.php";
+function base() {
+$("#data").load(path + " #base");
+$("#heading").load(path +" #baseHeading");  
+}
 function databaseManagement(){
 $("#data").load(path + " #databaseManagement"); 
-// load funktio ei toimi ellei käytä linkkiä kohteeseen
 $("#heading").load(path +" #databaseManagementHeading"); 
 };
 function userManagement(){
 $("#data").load(path + " #users"); 
-// load funktio ei toimi ellei käytä linkkiä kohteeseen
 $("#heading").load(path + " #usersHeading"); 
 };
 function statisticManagement(){
 $("#data").load(path + " #statistics"); 
-// load funktio ei toimi ellei käytä linkkiä kohteeseen
 $("#heading").load(path + " #statisticsHeading"); 
 };
+function getFile() {
+document.getElementById('exportFile').click();
+}

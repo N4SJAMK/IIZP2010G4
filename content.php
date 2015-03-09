@@ -1,3 +1,14 @@
+<div id="baseHeading">
+<?php 
+echo "Baseview";
+?>
+</div>
+<div id="base">
+<p>
+Select what data you want to see, or wait till someone updates this
+to show something; 
+</P>
+</div>
 <div id="statisticsHeading">
 <?php 
 echo "Statistics";
@@ -27,9 +38,12 @@ echo "Database Management";
 </div>
 <div id="databaseManagement">
 <?php 
-//Tänne jotain hienoa php koodeja
+//Tänne jotain hienoa php koodia
 ?>
 <button>Snapshot</button>
-<button>Export</button>
+<button onclick= "getFile()"> Export </button> 
+<input type="file" id="exportFile" value="exportFileValue">
+<!--Nyt todennäköisesti saa GETillä exportFileValuella sen filun kiinni
+	ja varmasti saa getElementBy id:llä-->
 </div>
 

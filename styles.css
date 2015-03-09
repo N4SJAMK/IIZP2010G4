@@ -23,11 +23,8 @@ body {
     border-bottom: 1px solid #B2B2B2;
 }
 .workspace-heading {
-    margin-left: 9px;
-}
-.topbar h2 {
-    font-size: 2rem;
-    color: #221A26;
+    padding: 15px 0 0 32px;
+	font-size: 150%;
 }
 .application {
     display: flex;
@@ -42,30 +39,41 @@ body {
     position: relative;
     background-color: #190C21;
 	color: #FFF;
+	font-family: "Lato","Helvetica","Arial",sans-serif;
 }
 .logo-container {
     display: flex;
     align-items: center;
     justify-content: center;
+	cursor: pointer;
 }
 .logo {
 	font-family: "Lobster","Helvetica","Arial",sans-serif;
     flex: 0 1 auto;
+	font-size: 120%;
     width: 48px;
     height: 48px;
-    margin: 8px;
-	
+    margin: 8px;	
 }
 .sideButton {
 width:100%;
+}
+.buttonCollapse {
+position: absolute;
+cursor: pointer;
+z-index: 1;
+font-size: 26px;
+right: 0px;
+top: 76px;
+padding: 2px 6px;
+border-radius: 3px 0px 0px 3px;
+color: #FFF;
+background-color: #72BDBB;
 }
 .view {
     flex: 1 1 auto;
     width: 100%;
     height: 100%;
-}
-.application .view.view-workspace {
-    background-color: #FFF;
 }
 .Data {
     margin: 32px;
@@ -73,4 +81,7 @@ width:100%;
     flex-flow: row wrap;
     align-content: flex-start;
 	height:100%;
+}
+#exportFile {
+display:none;
 }
