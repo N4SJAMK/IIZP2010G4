@@ -10,7 +10,7 @@ body {
     padding: 0px;
 	height: 100%;
 }
-.topbar {
+.countainer {
     position: relative;
     box-sizing: border-box;
     margin: 0px;
@@ -22,15 +22,18 @@ body {
     background-color: #EDEDED;
     border-bottom: 1px solid #B2B2B2;
 }
+
 .workspace-heading {
     padding: 15px 0 0 32px;
 	font-size: 150%;
 	cursor: pointer;
+	width:100%;
 }
 .application {
     display: flex;
     flex-direction: row;
 	height:100%;
+	width:100%;
 }
 .sidebar {
     width: 20%;
@@ -79,10 +82,14 @@ background-color: #72BDBB;
 .Data {
     margin: 32px;
     display: flex;
-    flex-flow: row wrap;
-    align-content: flex-start;
 	height:100%;
+	width:100%;
 }
+table, th, td {
+    border: 1px solid black;
+	width:100%;
+}
+
 #exportFile {
 display:none;
 }

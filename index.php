@@ -25,10 +25,11 @@
 				<button type="button" onclick="databaseManagement()" class="btn btn-primary">Database management</button>				
 			</div>
         </div>
-		<div class ="topbar">
+		<div class ="countainer">
 			<div class ="workspace-heading" id="heading" data-toggle="collapse" data-parent="#accordion" href="#sidebar">
 				Baseview
 			</div>
+		
 			<div class="Data" id="data">
 				Select what data you want to see, or wait till someone updates this to show something	
 			</div>

@@ -1,7 +1,6 @@
+<link rel="stylesheet" href="styles.css"></link>
 <div id="baseHeading">
-<?php 
-echo "Baseview";
-?>
+Baseview;
 </div>
 <div id="base">
 <p>
@@ -15,26 +14,39 @@ echo "Statistics";
 ?>
 </div>
 <div id="statistics">
-<?php
-echo "Raah"; 
-//jtn koodia millä statistiikkaa näkyviin
-?>
+Raah; 
 </div>
 <div id="usersHeading">
-<?php 
-echo "Users";
-?>
+Users;
 </div>
 <div id="users">
-<?php
-echo "Pöö"; 
-//jtn koodia millä käyttäjät näkyviin
-?>
+<table class="table">
+   <thead>
+      <tr>
+         <th>Username</th>
+         <th>Email</th>
+		 <th>Password</th>
+		 <th>Ban</th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+         <td>Pekka</td>
+         <td>plaa@poo.fi</td>
+		 <td>hunter94</td>
+		 <td><button type="button" class="btn btn-default" onclick="ban()">Ban me</button></td>
+      </tr>
+      <tr>
+         <td>Raah</td>
+         <td>raah@poo.fi</td>
+		 <td>salasana</td>
+		 <td><button type="button" class="btn btn-default">Ban me</button></td>
+      </tr>
+   </tbody>
+</table>
 </div>
-<div id="databaseManagementHeading">
-<?php 
-echo "Database Management";
-?>
+<div id="databaseManagementHeading"> 
+ Database Management;
 </div>
 <div id="databaseManagement">
 <?php 
