@@ -31,16 +31,16 @@ Users;
    </thead>
    <tbody>
       <tr>
-         <td>Pekka</td>
-         <td>plaa@poo.fi</td>
+         <td class="name">Pekka</td>
+         <td class="email">plaa@poo.fi</td>
 		 <td>hunter94</td>
 		 <td><button type="button" class="btn btn-default" onclick="ban()">Ban me</button></td>
       </tr>
       <tr>
-         <td>Raah</td>
-         <td>raah@poo.fi</td>
+         <td class="name">Raah</td>
+         <td class="email">raah@poo.fi</td>
 		 <td>salasana</td>
-		 <td><button type="button" class="btn btn-default">Ban me</button></td>
+		 <td><button type="button" class="btn btn-default" onclick="ban()">Ban me</button></td>
       </tr>
    </tbody>
 </table>
