@@ -13,26 +13,40 @@
 </head>
 <body>
     <div class="application">
+	
         <div class="sidebar" id="sidebar">
-            <div class="logo-container" onclick="base()">
+            <div class="logo-container">
                 <div class="logo">
-				Admin panel
+					<a href="index.php?page=base">
+							Admin panel
+					</a>
 				</div>
             </div>
-			<div class="btn-group-vertical" style = "width:100%">
-				<button type="button" onclick="statisticManagement()" class="btn btn-primary">Statistics</button>
-				<button type="button" onclick="userManagement()" class="btn btn-primary">Users</button>
-				<button type="button" onclick="databaseManagement()" class="btn btn-primary">Database management</button>				
+			<div id="sidebar-wrapper">
+				<ul class="sidebar-nav">
+					<li>
+						<a href="index.php?page=users">Users</a>
+					</li>
+					<li>
+						<a href="index.php?page=statistic">Statistics</a>
+					</li>
+					<li>
+						<a href="index.php?page=dataBase">dataBase</a>
+					</li>
+				</ul>
 			</div>
         </div>
 		<div class ="countainer">
-			<div class ="workspace-heading" id="heading" data-toggle="collapse" data-parent="#accordion" href="#sidebar">
-				Baseview
-			</div>
-		
-			<div class="Data" id="data">
-				Select what data you want to see, or wait till someone updates this to show something	
-			</div>
+			<?php
+				@$page = $_GET['page'];	/* gets the variable $page */
+				if (!empty($page)) {
+					$page .= '.php';
+					include($page);
+				} 			/* if $page has a value, include it */
+				else {
+					include('base.php');
+				} 	/* otherwise, include the default page */
+			?>
         </div>
     </div>
 	<script src="scripts.js"></script>

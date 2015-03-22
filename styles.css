@@ -45,6 +45,30 @@ body {
 	color: #FFF;
 	font-family: "Lato","Helvetica","Arial",sans-serif;
 }
+.sidebar-nav {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #999999;
+	padding-top:10px;
+	text-align:center;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
 .logo-container {
     display: flex;
     align-items: center;
@@ -59,20 +83,13 @@ body {
     height: 48px;
     margin: 8px;	
 }
-.sideButton {
-width:100%;
+.logo a {
+    display: block;
+    text-decoration: none;
+    color: light-blue;
+	text-align:center;
 }
-.buttonCollapse {
-position: absolute;
-cursor: pointer;
-z-index: 1;
-font-size: 26px;
-right: 0px;
-top: 76px;
-padding: 2px 6px;
-border-radius: 3px 0px 0px 3px;
-color: #FFF;
-background-color: #72BDBB;
+
 }
 .view {
     flex: 1 1 auto;
