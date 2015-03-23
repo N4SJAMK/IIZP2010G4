@@ -1,0 +1,6 @@
+Siirretään ensin kaikki paska apachen vaatimaan www kansioon
+sudo cp index.php base.php dataBase.php scripts.js styles.css users.php
+statistic.php /var/www/html
+
+Jotta kaikki ei olisi liian helppoa sudo apt-get install php5 tähän kansioon
+
