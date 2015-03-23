@@ -1,6 +1,15 @@
 Siirretään ensin kaikki paska apachen vaatimaan www kansioon
-sudo cp index.php base.php dataBase.php scripts.js styles.css users.php
-statistic.php /var/www/html
+sudo cp index.php base.php dataBase.php scripts.js styles.css users.php statistic.php /var/www/html
+
+sitten poista kyseisestä kansiosta index.html
+
+sudo rm index.html
 
 Jotta kaikki ei olisi liian helppoa sudo apt-get install php5 tähän kansioon
+
+lopuksi pistä selaimeen
+
+http://127.0.0.1:4567
+
+pitäis toimia
 
