@@ -1,5 +1,7 @@
+﻿Jos kysyy salasanaa niin se on: vagrant 
+
 Siirretään ensin kaikki paska apachen vaatimaan www kansioon
-sudo cp index.php base.php dataBase.php scripts.js styles.css users.php statistic.php /var/www/html
+sudo cp index.php base.php dataBaseManagement.php scripts.js styles.css users.php statistic.php /var/www/html
 
 sitten poista kyseisestä kansiosta index.html
 

@@ -31,7 +31,7 @@
 						<a href="index.php?page=statistic">Statistics</a>
 					</li>
 					<li>
-						<a href="index.php?page=dataBase">dataBase</a>
+						<a href="index.php?page=dataBaseManagement">dataBase</a>
 					</li>
 				</ul>
 			</div>
