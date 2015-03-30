@@ -1,13 +1,10 @@
 ﻿Jos kysyy salasanaa niin se on: vagrant 
 
-Siirretään ensin kaikki paska apachen vaatimaan www kansioon
-sudo cp index.php base.php dataBaseManagement.php scripts.js styles.css users.php statistic.php /var/www/html
+sudo nano /etc/apache2/sites-available/000-default.conf
+DocumentRoot /var/www/html VAIHDA DocumentRoot /home/vagrant/
 
-sitten poista kyseisestä kansiosta index.html
-
-sudo rm index.html
-
-Jotta kaikki ei olisi liian helppoa sudo apt-get install php5 tähän kansioon
+sudo nano /etc/apache2/apache2.conf
+<Directory /var/www/html/> VAIHDA <Directory /home/vagrant/>
 
 lopuksi pistä selaimeen
 
