@@ -1,14 +1,8 @@
-﻿Jos kysyy salasanaa niin se on: vagrant 
+﻿Jos kysyy salasanaa niin se on: vagrant
+ 
+Muokkaa vain paikallistiedostoja, ne synkataan apachen www kansioon
 
-sudo nano /etc/apache2/sites-available/000-default.conf
-DocumentRoot /var/www/html VAIHDA DocumentRoot /home/vagrant/
-
-sudo nano /etc/apache2/apache2.conf
-<Directory /var/www/html/> VAIHDA <Directory /home/vagrant/>
-
-sudo /etc/init.d/apache2 restart
-
-lopuksi pistä selaimeen
+Pistä selaimeen niin saat testidataa kantaan
 http://127.0.0.1:4567/datadump.php
 
 jonka jälkeen pistä
