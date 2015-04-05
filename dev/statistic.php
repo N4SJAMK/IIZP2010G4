@@ -12,13 +12,15 @@ $db = Database::DB(DB_NAME);
 $collection = new MongoCollection($db, 'users');
 
 $cursor = $collection->find();
-/*$i=0;
+/*
+$i=0;
 foreach ($cursor as $doc) {
 	var_dump($doc);
 	$i++;
 	echo "<br>" .$i. "<br>---------------<br>";
 }
 */
+
 
 var_dump($collection->count());
 echo "riviä löydetty käyttäjiä";

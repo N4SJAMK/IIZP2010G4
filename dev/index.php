@@ -1,5 +1,4 @@
 <head>
-
     <meta charset="UTF-8"></meta>
     <meta content="user-scalable=no,initial-scale=1.0" name="viewport"></meta>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -16,6 +15,7 @@
 	
         <div class="sidebar" id="sidebar">
             <div class="logo-container">
+			 <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
                 <div class="logo">
 					<a href="index.php?page=base">
 							Admin panel
@@ -25,28 +25,33 @@
 			<div id="sidebar-wrapper">
 				<ul class="sidebar-nav">
 					<li>
-						<a href="index.php?page=users">Users</a>
+						<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+						<a href="index.php?page=users"> Users</a>
 					</li>
 					<li>
-						<a href="index.php?page=statistic">Statistics</a>
+						<span class=" glyphicon glyphicon-signal" aria-hidden="true"></span>
+						<a href="index.php?page=statistic"> Statistics</a>
 					</li>
 					<li>
-						<a href="index.php?page=dataBaseManagement">dataBase</a>
+						<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+						<a href="index.php?page=dataBaseManagement">  dataBase</a>
 					</li>
 				</ul>
 			</div>
         </div>
 		<div class ="countainer">
 			<?php
-				@$page = $_GET['page'];	/* gets the variable $page */
+				@$page = $_GET['page'];
 				if (!empty($page)) {
 					$page .= '.php';
 					include($page);
-				} 			/* if $page has a value, include it */
+				}
 				else {
 					include('base.php');
-				} 	/* otherwise, include the default page */
+				}
+				
 			?>
+			
         </div>
     </div>
 	<script src="scripts.js"></script>
