@@ -31,6 +31,7 @@ body {
 .workspace-heading {
     padding: 15px 0 20px 32px;
 	font-size: 150%;
+	margin-bottom:16px;
 	cursor: pointer;
 	width:100%;
 	height:8%;
@@ -116,9 +117,6 @@ body {
 	overflow:scroll;
 	background-color:white;
 	position:relative;
-}
-table, th, td {
-    border: 1px solid black;	
 }
 
 #exportFile {

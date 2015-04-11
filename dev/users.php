@@ -5,13 +5,7 @@ define("DB_NAME", "testi-kanta");
 $db = Database::DB(DB_NAME);
 
 $collection = new MongoCollection($db, 'users');
-/*
-function haeHenkilot($collection, $searcValue) {
-$query = array('name' => '$searcValue');	
-$cursor = $collection->find($query);
-return $cursor;
-}
-*/
+
 function haeHenkilot($collection) {
 $query = array();	
 $cursor = $collection->find($query);
@@ -24,11 +18,15 @@ function mongoResult2Html($cursor)
 			echo "<td class='name'> {$doc["name"]} </td>";
 			echo "<td class='email'> {$doc["sposti"]} </td>";
 			echo "<td> {$doc["salasana"]} </td>";
+			echo "<td><button type='button' class='btn btn-default' data-toggle='collapse' data-target='#{$doc["name"]}'>show more data</button></td>";
 			echo "<td><button type='button' class='btn btn-default' onclick='ban()'>Ban me</button></td>";
+			echo "<div id='{$doc["name"]}' class='collapse'>
+					Tämän käyttäjän id on:	{$doc["name"]}			
+					</div></td>";
 			echo "</tr>";
+
 		}
 	}
-
 ?>
 <div class ="workspace-heading" id="heading" data-toggle="collapse" data-parent="#accordion" href="#sidebar">
 	Users
@@ -36,27 +34,31 @@ function mongoResult2Html($cursor)
 		
 <div class="Data" id="data">
 
-<form method='get' action='index.php?page=users'>
-Search by username :<br>
-<input type='text' name='searcValue' value=''>
-<input type='submit' value='search'>
-</form>
-	<table class="table">
+
+	<table id="Table" class="table table-striped" >
 		<thead>
 			<tr>
-				<th>Username</th>
-				<th>Email</th>
+				<th>Id</th>
+				<th>Email / Username</th>
 				<th>Password</th>
+				<th>Show moar data</th>
 				<th>Ban</th>
 			</tr>
 		</thead>
 		<tbody>
 			<?php
-			//$searcValue = isset($_GET['searcValue']) ? $_GET['searcValue'] : '';
-			//$stmt = haeHenkilot($collection, $searcValue);
 			$stmt = haeHenkilot($collection);
 			mongoResult2Html($stmt);
 			?>
 		</tbody>
-	</table>	
+	</table>
+	
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#Table").dataTable( {
+        "order": [[ 0, "asc" ]]
+    } );
+})
+</script>
+
 </div>
