@@ -2,18 +2,16 @@
 require "database.php";
 define("DB_NAME", "testi-kanta");
 $db = Database::DB(DB_NAME);
-
 for ($i=0; $i<=20; $i++)
 {
 $kayttaja = array(
-"name" => "kayttaja" . $i,
 "sposti" => "sahkoposti" . $i . "@sahkoposti.plingplong",
-"salasana" => "passu". $i , 
+"salasana" => "passu". $i ,
+"Bannitty" => "Ei vielä", 
 );
-}
 //echo $kayttaja;
 $db->users->save($kayttaja);
-
+}
 for ($i=0; $i<=20; $i++)
 {
 $board = array(
@@ -24,8 +22,5 @@ $board = array(
 "accessCode" => "",
 "background"=> "none"
 );
-}
 $db->boards->save($board);
-
-
 }
