@@ -21,7 +21,7 @@ foreach ($cursor as $doc) {
 }
 */
 
-
+echo "vittu mitä paskaa";
 var_dump($collection->count());
 echo "riviä löydetty käyttäjiä";
 ?>
