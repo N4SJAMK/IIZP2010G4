@@ -30,6 +30,10 @@
 						<a href="index.php?page=users"> Users</a>
 					</li>
 					<li>
+						<span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
+						<a href="index.php?page=boards"> Boards</a>
+					</li>
+					<li>
 						<span class=" glyphicon glyphicon-signal" aria-hidden="true"></span>
 						<a href="index.php?page=statistic"> Statistics</a>
 					</li>
@@ -42,6 +46,7 @@
         </div>
 		<div class ="countainer">
 			<?php
+			ini_set('display_errors', '1');
 				@$page = $_GET['page'];
 				if (!empty($page)) {
 					$page .= '.php';
