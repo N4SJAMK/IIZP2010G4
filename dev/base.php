@@ -4,7 +4,7 @@
 		
 <div class="Data" id="data">
 <p>
-Select what data you want to see, or wait till someone updates this
-to show something; 
-</P>	
+ <a href="datadump.php">generate test data</a> 
+<p>
+Creates 200 users, 2000 boards and 8000 tickets	
 </div>

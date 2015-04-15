@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <head>
     <meta charset="UTF-8"></meta>
     <meta content="user-scalable=no,initial-scale=1.0" name="viewport"></meta>
@@ -54,7 +57,8 @@
 				}
 				else {
 					include('base.php');
-				}				
+				}
+			$_SESSION['page']=$_GET['page'];				
 			?>
 			
         </div>

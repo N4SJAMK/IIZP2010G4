@@ -1,11 +1,14 @@
 <?php
+
+error_reporting(E_ALL); ini_set('display_errors', '1');
 require "database.php";
 define("DB_NAME", "testi-kanta");
 $db = Database::DB(DB_NAME);
+
+
 for ($i=0; $i<=200; $i++)
 {
 $kayttaja = array(
-"id" => $i, 
 "sposti" => "sahkoposti" . $i . "@sahkoposti.plingplong",
 "salasana" => "passu". $i ,
 "Bannitty" => 0, 
@@ -13,27 +16,48 @@ $kayttaja = array(
 //echo $kayttaja;
 $db->user->save($kayttaja);
 }
-for ($i=0; $i<=20; $i++)
+
+
+//taulukoidaan käyttäjien id:t
+$collection = new MongoCollection($db, 'user');
+$cursor = $collection->find();
+$plaa = 0;
+foreach ($cursor as $doc){	
+	$taulu[$plaa] = $doc['_id'];
+	$plaa++;
+}
+
+//tehdään taulut ja annetaan käyttäjien id:t
+for ($i=0; $i<=2000; $i++)
 {
 $board = array(
-"id" => $i,
 "name" => "name" . $i,
 "description" => "description". $i ,
-"createdBy" =>  rand(0,19),
+"createdBy" =>  $taulu[rand(0,199)],
 "accessCode" => "",
 "background"=> "none"
 );
 $db->board->save($board);
 }
 
-for ($i=0; $i<=20; $i++)
+
+$collection = new MongoCollection($db, 'board');
+$cursor = $collection->find();
+$plaa = 0;
+foreach ($cursor as $doc){	
+	$taulu[$plaa] = $doc['_id'];
+	$plaa++;
+}
+
+for ($i=0; $i<=8000; $i++)
 {
 $ticket = array(
-"id" => $i,
-"board" =>  rand(0,19),
+"board" =>  $taulu[rand(0,1999)],
 "content" => "content". $i ,
 "color" => "blue",
 );
-$db->ticket->save($board);
+$db->ticket->save($ticket);
 }
+echo "Adding done, returning in 2s";
 
+header('refresh:2; index.php');

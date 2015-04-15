@@ -5,8 +5,8 @@ require "database.php";
 define("DB_NAME", "testi-kanta");
 $db = Database::DB(DB_NAME);
 
-$collection = new MongoCollection($db, 'users');
-$collection2 = new MongoCollection($db, 'boards');
+$collection = new MongoCollection($db, 'user');
+$collection2 = new MongoCollection($db, 'board');
 
 function haeHenkilot() {	
 global $collection;
@@ -16,7 +16,7 @@ return $cursor;
 
 function haeTaulut($kayttaja) {
 global $collection2;
-$query = array('createdBy' => $kayttaja);	
+$query = array('createdBy' => new MongoId($kayttaja));	
 $cursor = $collection2->find($query);
 return $cursor;
 }
@@ -33,17 +33,26 @@ return $text;
 
 function mongoResult2Html($cursor)
 	{		
-		foreach ($cursor as $doc) {
-				
-		
+		foreach ($cursor as $doc) {						
 			echo "<tr>";
 			echo "<td class='email'> {$doc["sposti"]} </td>";
 			echo "<td> {$doc["salasana"]} </td>";
-			echo "<td><button type='button' class='btn btn-default' data-toggle='collapse' data-target='#{$doc["id"]}'>show more data</button></td>";
-			echo "<td><button type='button' class='btn btn-default' onclick='ban()'>Ban me</button></td>";
+			echo "<td><button type='button' class='btn btn-default' data-toggle='collapse' data-target='#{$doc["_id"]}'>Show</button></td>";
 			echo "<td class='name'> {$doc["Bannitty"]} </td>";
 			echo "</tr>";
-			echo "<tr class='collapse out' id='{$doc["id"]}'><td colspan='5'>  ".KirjoitaTiedot(haeTaulut($doc['id']))." </td></tr>";
+		    echo "<tr class='collapse out' id='{$doc["_id"]}'>
+			<td colspan='4'>
+			".KirjoitaTiedot(haeTaulut($doc['_id']))." 
+			<br>
+			<a href='muokkaa.php?user={$doc['_id']}&do=ban'>Ban</a>   <a href='muokkaa.php?user={$doc['_id']}&do=unBan'>Unban</a>
+			<br>
+			<a href='muokkaa.php?user={$doc['_id']}&do=reset'>Reset password</a>
+			<br>			
+			<form action='muokkaa.php?user={$doc['_id']}&do=change' method='post' name='{$doc['_id']}' >
+			<input type='text' name='newPassword'>
+			<input type='submit' value='Change Password'>
+			</form>
+			</td></tr>";
 		}
 	}
 ?>
@@ -51,9 +60,7 @@ function mongoResult2Html($cursor)
 	Users
 </div>
 		
-<div class="Data" id="data">
-
-	
+<div class="Data" id="data">	
 	<p>
 		<label for="search">
 			<strong>Enter keyword to search </strong>
@@ -66,9 +73,8 @@ function mongoResult2Html($cursor)
 			<tr>
 				<th>Email/ Username</th>
 				<th>Password</th>
-				<th>Show moar data</th>
-				<th>Ban</th>
-				<th>Ban?</th>
+				<th>Data / options</th>
+				<th>Banned?</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -78,39 +84,4 @@ function mongoResult2Html($cursor)
 			?>
 		</tbody>
 	</table>
-	<script>
-	$(document).ready(function()
-	{
-		$('#search').keyup(function()
-		{
-			searchTable($(this).val());
-		});
-	});
-
-	function searchTable(inputVal)
-	{
-		var table = $('#Table');
-		table.find('tr').each(function(index, row)
-		{
-			var allCells = $(row).find('td');
-			if(allCells.length > 0)
-			{
-				var found = false;
-				allCells.each(function(index, td)
-				{
-					var regExp = new RegExp(inputVal, 'i');
-					if(regExp.test($(td).text()))
-					{
-						found = true;
-						return false;
-					}
-				});
-				if($(this).hasClass('collapse'));
-				else if(found == true)$(row).show();				
-				else $(row).hide();
-			}
-		});
-	}
-	
-	</script>
 </div>
