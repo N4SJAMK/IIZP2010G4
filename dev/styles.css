@@ -6,9 +6,11 @@ html {
 	-webkit-box-sizing: border-box;
    -moz-box-sizing: border-box;
         box-sizing: border-box;
+		
 	
 }
 body {
+background-color: #221A26;
     border: 0px none;
     margin: 0px;
     padding: 0px;
@@ -89,7 +91,7 @@ body {
 	cursor: pointer;
 	font-size: 120%;
 }
-.logo {
+.logo-container .logo {
 	font-family: "Lobster","Helvetica","Arial",sans-serif;
     flex: 0 1 auto;	
     width: 48px;
@@ -105,9 +107,10 @@ body {
 
 }
 .view {
-    flex: 1 1 auto;
-    width: 100%;
-    height: 100%;
+height: 100%;
+display: flex;
+-moz-box-orient: vertical;
+flex-direction: column;
 }
 .Data {
 	padding:15px 0 0 32px;
@@ -119,6 +122,39 @@ body {
 	position:relative;
 }
 
+.form {
+width: 80%;
+max-width: 210px;
+margin: 0px auto;
+padding: 80px 16px;
+color:white;
+}
+
+.form input{
+color:black;
+}
+
+.form  .logo {
+	font-family: "Lobster","Helvetica","Arial",sans-serif;
+    flex: 0 1 auto;	
+}
+
+.bg-info {
+	width:86%;
+	margin: 16px 0px;
+    border-color: #619B98;
+    background-color: #72BDBB;
+	height: 36px;
+	padding: 2px 8px;
+	border-width: 0px 2px 2px 0px;
+	border-style: solid;
+	border-radius: 2px;
+	color: #FFF;
+	font-size: 12px;
+	line-height: 32px;
+	letter-spacing: 1px;
+	transition: background-color 0s ease 0s, all 0.2s ease 0s;
+}
 #exportFile {
 display:none;
 }

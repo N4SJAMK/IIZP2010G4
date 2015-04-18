@@ -1,31 +1,34 @@
-	$(document).ready(function()
-	{
-		$('#search').keyup(function()
-		{
-			searchTable($(this).val());
-		});
-	});
-	function searchTable(inputVal)
-	{
-		var table = $('#Table');
-		table.find('tr').each(function(index, row)
-		{
-			var allCells = $(row).find('td');
-			if(allCells.length > 0)
-			{
-				var found = false;
-				allCells.each(function(index, td)
-				{
-					var regExp = new RegExp(inputVal, 'i');
-					if(regExp.test($(td).text()))
-					{
-						found = true;
-						return false;
-					}
-				});
-				if($(this).hasClass('collapse'));
-				else if(found == true)$(row).show();				
-				else $(row).hide();
-			}
-		});
-	}
+$(document).ready(function() { 
+  var pagerOptions = {
+    container: $(".pager"),
+    output: '{startRow:input} to {endRow} ({totalRows})',
+    updateArrows: true,
+    page: 0,
+    size: 10, 
+    storageKey:'tablesorter-pager',
+    fixedHeight: true,
+	//don't set this false
+    removeRows: true,	
+    cssNext: '.next', 
+    cssPrev: '.prev', 
+    cssFirst: '.first', 
+    cssLast: '.last', 
+  };
+
+  $("Table")
+    .tablesorter({
+		theme: 'blue',
+      widthFixed: false,
+      widgets: ["filter"],
+	  widgetOptions : {
+      filter_external : '.search',
+      filter_defaultFilter: { 1 : '~{query}' },
+      filter_columnFilters: true,
+      filter_placeholder: { search : 'Search...' },
+      filter_saveFilters : true,
+      filter_reset: '.reset'
+    },
+	  cssChildRow: "tablesorter-childRow"
+    })
+    .tablesorterPager(pagerOptions);
+});

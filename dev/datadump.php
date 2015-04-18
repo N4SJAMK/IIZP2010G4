@@ -1,6 +1,22 @@
 <?php
 
 error_reporting(E_ALL); ini_set('display_errors', '1');
+@session_start();
+if($_SESSION['logged']==false){
+require "database.php";
+define("DB_NAME", "testi-kanta");
+$db = Database::DB(DB_NAME);
+	$admin = array(
+"name" => "admin",
+"salasana" => password_hash("admin123", PASSWORD_DEFAULT)
+);
+$db->admin->save($admin);
+header('Location: index.php');
+}
+else{
+
+
+
 require "database.php";
 define("DB_NAME", "testi-kanta");
 $db = Database::DB(DB_NAME);
@@ -10,7 +26,7 @@ for ($i=0; $i<=200; $i++)
 {
 $kayttaja = array(
 "sposti" => "sahkoposti" . $i . "@sahkoposti.plingplong",
-"salasana" => "passu". $i ,
+"salasana" => password_hash("passu". $i, PASSWORD_DEFAULT),
 "Bannitty" => 0, 
 );
 //echo $kayttaja;
@@ -61,3 +77,4 @@ $db->ticket->save($ticket);
 echo "Adding done, returning in 2s";
 
 header('refresh:2; index.php');
+}

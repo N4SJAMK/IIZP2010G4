@@ -1,7 +1,9 @@
 ï»¿<?php
-//Tänne pitää laittaa tarkistus jos on kirjautuneena1§
-session_start();
+@session_start();
 error_reporting(E_ALL); ini_set('display_errors', '1');
+if($_SESSION['logged'] == false)
+header("Location: https://www.youtube.com/watch?v=WIKqgE4BwAY");
+else{	
 require "database.php";
 
 define("DB_NAME", "testi-kanta");
@@ -24,11 +26,13 @@ if ($_GET['user']){
 	}
 	if($_GET['do'] == 'reset')
 	{
-		$collection->update(array("_id" => new MongoId($_GET['user'])), array('$set' =>array("salasana" => "foobar")));
+		$password = password_hash("foobar". $i, PASSWORD_DEFAULT);
+		$collection->update(array("_id" => new MongoId($_GET['user'])), array('$set' =>array("salasana" => $password)));
 	}
 	if($_GET['do'] == 'change')
 	{
-		$collection->update(array("_id" => new MongoId($_GET['user'])), array('$set' =>array("salasana" => $_POST['newPassword'])));
+		$password = password_hash($_POST['newPassword']. $i, PASSWORD_DEFAULT);
+		$collection->update(array("_id" => new MongoId($_GET['user'])), array('$set' =>array("salasana" => $password)));
 	}	
 }
 if ($_GET['ticket']){
@@ -41,9 +45,18 @@ if ($_GET['ticket']){
 if($_POST['killMe'])
 {
 	global $collection2;
+	global $collection3;
+	//poistetaan tiketit taulusta
+	$query = array('board' => new MongoId($_GET['board']));	
+	$cursor = $collection3->find($query);
+	foreach ($cursor as $doc){
+	$collection3->remove(array("board" => new MongoId($_GET['board'])));
+	}
+	//poistetaan taulut
 	$collection2->remove(array("_id" => new MongoId($_GET['board'])));
+	$_SESSION['logged'] = false;
 }
 
-
 header("Location: index.php?page={$_SESSION['page']}");
+}
 ?>
