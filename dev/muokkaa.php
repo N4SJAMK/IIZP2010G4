@@ -2,7 +2,7 @@
 @session_start();
 error_reporting(E_ALL); ini_set('display_errors', '1');
 if($_SESSION['logged'] == false)
-header("Location: login.php);
+header("Location: login.php");
 else{	
 require "database.php";
 

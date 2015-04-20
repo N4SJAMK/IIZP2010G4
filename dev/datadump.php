@@ -68,7 +68,7 @@ foreach ($cursor as $doc){
 for ($i=0; $i<=6000; $i++)
 {
 $ticket = array(
-"board" =>  $taulu[rand(0,1999)],
+"board" =>  $taulu[rand(0,1199)],
 "content" => "content". $i ,
 "color" => "blue",
 );
