@@ -1,7 +1,7 @@
 <?php 
 @session_start();
 if($_SESSION['logged']==false)
-header("Location: https://www.youtube.com/watch?v=WIKqgE4BwAY");
+header("Location: login.php");
 ?>
 
 <div class ="workspace-heading" id="heading" data-toggle="collapse" data-parent="#accordion" href="#sidebar">
