@@ -1,0 +1,7 @@
+#type crontab -e on commandline 
+#at the end of the file type last line of this file
+#first* 	second*	third*	fourth*	fifth*
+#minutes	hours	days	months	day-of-week
+#
+#*/15 means we are running this php script every 15 minutes
+*/15 * * * * /usr/bin/curl http://127.0.0.1:80/collectstatistic.php
