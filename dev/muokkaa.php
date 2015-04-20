@@ -54,7 +54,6 @@ if($_POST['killMe'])
 	}
 	//poistetaan taulut
 	$collection2->remove(array("_id" => new MongoId($_GET['board'])));
-	$_SESSION['logged'] = false;
 }
 
 header("Location: index.php?page={$_SESSION['page']}");
