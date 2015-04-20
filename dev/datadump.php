@@ -44,7 +44,7 @@ foreach ($cursor as $doc){
 }
 
 //tehdään taulut ja annetaan käyttäjien id:t
-for ($i=0; $i<=2000; $i++)
+for ($i=0; $i<=1200; $i++)
 {
 $board = array(
 "name" => "name" . $i,
@@ -65,7 +65,7 @@ foreach ($cursor as $doc){
 	$plaa++;
 }
 
-for ($i=0; $i<=8000; $i++)
+for ($i=0; $i<=6000; $i++)
 {
 $ticket = array(
 "board" =>  $taulu[rand(0,1999)],
