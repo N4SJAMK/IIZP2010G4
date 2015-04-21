@@ -15,6 +15,8 @@ $collection3 = new MongoCollection($db, 'ticket');
 function haeTaulut() {	
 global $collection2;	
 $cursor = $collection2->find();
+$cursor->skip($_GET['pages']);
+$cursor->limit(400);
 return $cursor;
 }
 
@@ -33,8 +35,7 @@ function tiketit2Html($cursor) {
 return $text;			   
 }
 
-function mongoResult2Html($cursor, $luku)
-	{				
+function mongoResult2Html($cursor, $luku){				
 		foreach ($cursor as $doc) {						
 			echo "<tr>
 			 <td> {$doc["name"]} </td>
@@ -53,13 +54,27 @@ function mongoResult2Html($cursor, $luku)
 				</td></tr>";
 		}
 	}
-
+function divideAndConquer(){
+global $collection2;
+	$numberOfPages = $collection2->count() / 400;
+	$skipattavat = 0;
+	
+	for($x = 0; $x <= $numberOfPages; $x++){
+	echo "<a href='index.php?page=boards&pages=$skipattavat'>osio $x </a><br>";
+		$skipattavat = $skipattavat + 400;
+	}		
+}
 ?>
 <div class ="workspace-heading" id="heading" data-toggle="collapse" data-parent="#accordion" href="#sidebar">
 	Boards
 </div>
 		
-<div class="Data" id="data">	
+<div class="Data" id="data">
+
+	<?php
+		divideAndConquer();
+	?>
+
 	<div id="pager" class="pager">
 		<form>
 		<img src="../js/icons/first.png" class="first"/>
@@ -94,5 +109,6 @@ function mongoResult2Html($cursor, $luku)
 			?>
 		</tbody>
 	</table>
+	<br>
 </div>
 <?php } ?>

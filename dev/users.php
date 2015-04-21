@@ -15,6 +15,8 @@ $collection2 = new MongoCollection($db, 'board');
 function haeHenkilot() {	
 global $collection;
 $cursor = $collection->find();
+@$cursor->skip($_GET['pages']);
+$cursor->limit(400);
 return $cursor;
 }
 
@@ -35,29 +37,38 @@ $text =  "$number";
 return $text;
 }
 
-function mongoResult2Html($cursor)
-	{		
-		foreach ($cursor as $doc) {						
-			echo "<tr>
-			<td class='email'> {$doc["sposti"]} </td>
-			<td> {$doc["salasana"]} </td>
+function mongoResult2Html($cursor){		
+	foreach ($cursor as $doc) {						
+		echo "<tr>
+		<td class='email'> {$doc["sposti"]} </td>
+		<td> {$doc["salasana"]} </td>
 		<td> ".KirjoitaTiedot(haeTaulut($doc['_id']))." </td>
-			<td><button type='button' class='btn btn-default' data-toggle='collapse' data-target='#{$doc["_id"]}'>Show</button></td>
-			<td class='name'> {$doc["Bannitty"]} </td>
-			</tr>
-		    <tr class='collapse out tablesorter-childRow' id='{$doc["_id"]}'>
-			<td colspan='5'>			
-			<a href='muokkaa.php?user={$doc['_id']}&do=ban'>Ban</a>   <a href='muokkaa.php?user={$doc['_id']}&do=unBan'>Unban</a>
-			<br>
-			<a href='muokkaa.php?user={$doc['_id']}&do=reset'>Reset password</a>
-			<br>			
-			<form action='muokkaa.php?user={$doc['_id']}&do=change' method='post' name='{$doc['_id']}'>
-			<input type='text' name='newPassword'>
-			<input type='submit' class='btn btn-default' value='Change Password'>
-			</form>
-			</td></tr>";
-		}
+		<td><button type='button' class='btn btn-default' data-toggle='collapse' data-target='#{$doc["_id"]}'>Show</button></td>
+		<td class='name'> {$doc["Bannitty"]} </td>
+		</tr>
+		<tr class='collapse out tablesorter-childRow' id='{$doc["_id"]}'>
+		<td colspan='5'>			
+		<a href='muokkaa.php?user={$doc['_id']}&do=ban'>Ban</a>   <a href='muokkaa.php?user={$doc['_id']}&do=unBan'>Unban</a>
+		<br>
+		<a href='muokkaa.php?user={$doc['_id']}&do=reset'>Reset password</a>
+		<br>			
+		<form action='muokkaa.php?user={$doc['_id']}&do=change' method='post' name='{$doc['_id']}'>
+		<input type='text' name='newPassword'>
+		<input type='submit' class='btn btn-default' value='Change Password'>
+		</form>
+		</td></tr>";
 	}
+}
+function divideAndConquer(){
+global $collection2;
+	$numberOfPages = $collection2->count() / 400;
+	$skipattavat = 0;
+	
+	for($x = 0; $x <= $numberOfPages; $x++){
+	echo "<a href='index.php?page=users&pages=$skipattavat'>osio $x </a><br>";
+		$skipattavat = $skipattavat + 400;
+	}		
+}
 ?>
 <div class ="workspace-heading" id="heading" data-toggle="collapse" data-parent="#accordion" href="#sidebar">
 	Users
