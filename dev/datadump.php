@@ -15,8 +15,6 @@ header('Location: index.php');
 }
 else{
 
-
-
 require "database.php";
 define("DB_NAME", "testi-kanta");
 $db = Database::DB(DB_NAME);
@@ -44,7 +42,7 @@ foreach ($cursor as $doc){
 }
 
 //tehdään taulut ja annetaan käyttäjien id:t
-for ($i=0; $i<=1200; $i++)
+for ($i=0; $i<=2000; $i++)
 {
 $board = array(
 "name" => "name" . $i,
@@ -65,16 +63,18 @@ foreach ($cursor as $doc){
 	$plaa++;
 }
 
-for ($i=0; $i<=6000; $i++)
+for ($i=0; $i<=8000; $i++)
 {
 $ticket = array(
-"board" =>  $taulu[rand(0,1199)],
+"board" =>  $taulu[rand(0,1999)],
 "content" => "content". $i ,
 "color" => "blue",
 );
 $db->ticket->save($ticket);
 }
+
 echo "Adding done, returning in 2s";
 
 header('refresh:2; index.php');
 }
+

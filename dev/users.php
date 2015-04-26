@@ -60,12 +60,12 @@ function mongoResult2Html($cursor){
 	}
 }
 function divideAndConquer(){
-global $collection2;
-	$numberOfPages = $collection2->count() / 400;
+global $collection;
+	$numberOfPages = $collection->count() / 400;
 	$skipattavat = 0;
 	
 	for($x = 0; $x <= $numberOfPages; $x++){
-	echo "<a href='index.php?page=users&pages=$skipattavat'>osio $x </a><br>";
+	echo "<a href='index.php?page=users&pages=$skipattavat'>osio $x </a>";
 		$skipattavat = $skipattavat + 400;
 	}		
 }
@@ -73,8 +73,12 @@ global $collection2;
 <div class ="workspace-heading" id="heading" data-toggle="collapse" data-parent="#accordion" href="#sidebar">
 	Users
 </div>
-		
+				
 <div class="Data" id="data">	
+	
+	<?php
+		divideAndConquer();
+	?>
 		<div id="pager" class="pager">
 		<form>
 		<img src="../js/icons/first.png" class="first"/>

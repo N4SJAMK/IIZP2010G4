@@ -60,7 +60,7 @@ global $collection2;
 	$skipattavat = 0;
 	
 	for($x = 0; $x <= $numberOfPages; $x++){
-	echo "<a href='index.php?page=boards&pages=$skipattavat'>osio $x </a><br>";
+	echo "<a href='index.php?page=boards&pages=$skipattavat'>osio $x </a>";
 		$skipattavat = $skipattavat + 400;
 	}		
 }
