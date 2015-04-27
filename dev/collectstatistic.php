@@ -1,6 +1,23 @@
 <?php
 error_reporting(E_ALL);
 ini_set("display_errors", "1");
+session_save_path("/var/lib/php5");
+
+function session_count() {
+  $filter = "sess_";
+  $files = scandir(session_save_path());
+  $count = 0;
+  foreach ($files as $file) {
+    if(strpos($file,$filter)===0) {
+      $count += 1;
+    }
+  }
+  return $count;
+}
+
+$actsessions= session_count();
+
+
 $date = date("d-m-Y-H-i-s");
 require "database.php";
 
@@ -37,6 +54,7 @@ $statisticchange = array(
 "userschange" => $users,
 "boardschange" => $boards,
 "ticketschange" => $ticks,
+"usersactive" => $actsessions,
 "timestamp" => $date 
 );
 }
@@ -48,6 +66,7 @@ $statisticchange = array(
 "userschange" => '',
 "boardschange" => '',
 "ticketschange" => '',
+"users active" => 0,
 "timestamp" => $date 
 );
 }
